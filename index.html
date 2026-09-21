@@ -185,7 +185,7 @@ label{display:block;color:#cdbbc7;font-size:12px;margin:13px 0 5px}
   function safe(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
   function dateObj(){const d=new Date(); d.setDate(d.getDate()+(state?.day||0)); return d}
   function dateStr(){const d=dateObj(); const w=["日","月","火","水","木","金","土"][d.getDay()]; return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,"0")}.${String(d.getDate()).padStart(2,"0")} (${w})`}
-  function birthday(id){const d=dateObj(); const mm=String(d.getMonth()+1).padStart(2,"0"), dd=String(d.getDate()).padStart(2,"0"); return ${shio:"10-07",kome:"02-12",suzu:"12-11",nia:"05-21"}[id]===`${mm}-${dd}`}
+  function birthday(id){const d=dateObj(); const mm=String(d.getMonth()+1).padStart(2,"0"), dd=String(d.getDate()).padStart(2,"0"); return {"shio":"10-07","kome":"02-12","suzu":"12-11","nia":"05-21"}[id]===`${mm}-${dd}`}
   function stage(v){return v<15?"顔見知り":v<30?"よく会う客":v<50?"話しやすい客":v<70?"気になる客":v<85?"特別な客":"大切な人"}
   function trustLabel(v){return v<25?"まだ少し距離がある":v<50?"様子を見ている":v<75?"少しずつ心を開いている":"かなり信頼している"}
   function want(id){const r=state.aff[id]; if(id==="shio") return r>=70?"今日は私のこと、ちょっと優先してほしいちゃむ。":r>=40?"今度来たとき、またゆっくり話したいちゃむ。":"また来てくれたら嬉しいちゃむ。"; if(id==="kome") return r>=70?"今日はちょっと私のこと甘やかしてよ〜？":r>=40?"次来たらチェキ撮ろ〜！約束ね？":"また一緒に笑お〜！"; if(id==="suzu") return r>=70?"ねえ、今日は私のこと優先してくれない？":r>=40?"今度来たら私のお願いひとつ聞いて。":"次も来るなら覚えておいて。"; return r>=70?"今日はちょっとだけ甘えたい気分。お願い聞いてくれる？":r>=40?"次会ったら、前に話したこと覚えててくれたら嬉しいな。":"また話せたらいいな。"}
